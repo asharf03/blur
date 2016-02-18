@@ -20,5 +20,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/da-example-common"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/master"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i2-lib"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

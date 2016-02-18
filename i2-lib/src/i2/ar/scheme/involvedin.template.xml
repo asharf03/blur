@@ -3,7 +3,7 @@
 	<DateTime>#end_date</DateTime>
 </InvolvedIn_InvolvementEndDateandTime>
 <InvolvedIn_InvolvementStartDateandTime>
-	<DateTime>2#start_date</DateTime>
+	<DateTime>#start_date</DateTime>
 </InvolvedIn_InvolvementStartDateandTime>
 <InvolvedIn_InvolvementType>#type</InvolvedIn_InvolvementType>
 <InvolvedIn_UniqueReference>#id</InvolvedIn_UniqueReference>

@@ -32,7 +32,7 @@ public class TestClient4 {
 		}
 		
 		String timestamp  = getTextForTag(doc, "defns:timestamp");
-		String message    = getTextForTag(doc, "defns:message");
+		String message    = getTextForTag(doc, "defns:message").replaceAll("<.*>", "");
 		String personId   = getTextForTag(doc, "defns:person");
 		String orgId      = getTextForTag(doc, "defns:organization");
 		String buildingId = getTextForTag(doc, "defns:building");
@@ -47,7 +47,10 @@ public class TestClient4 {
 		Random random = new Random();
 		String eventId = String.valueOf(random.nextLong());
 		arc.createEvent(eventId, "ODM", timestamp, message, "");
-		arc.createInvolvedIn(String.valueOf(random.nextLong()), "Involved", personId, eventId);
+		arc.createInvolvedIn(String.valueOf(random.nextLong()), "Involved", eventId, personId);
+		arc.createInvolvedIn(String.valueOf(random.nextLong()), "Involved", eventId, buildingId);
+		arc.createInvolvedIn(String.valueOf(random.nextLong()), "Involved", eventId, orgId);
+		arc.execute();
 	}
 	
 	private String getTextForTag(Document doc, String tag) {
