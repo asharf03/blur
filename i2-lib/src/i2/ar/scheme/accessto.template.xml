@@ -1,0 +1,9 @@
+<AccessTo_AdditionalInformation>#info</AccessTo_AdditionalInformation>
+<AccessTo_EndDateandTime>
+	<DateTime>#end_date</DateTime>
+</AccessTo_EndDateandTime>
+<AccessTo_StartDateandTime>
+	<DateTime>#start_date</DateTime>
+</AccessTo_StartDateandTime>
+<AccessTo_TypeofUse>#type</AccessTo_TypeofUse>
+<AccessTo_UniqueReference>#id</AccessTo_UniqueReference>

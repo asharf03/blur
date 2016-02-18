@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:SimplePropertyValue xmlns:tns="http://www.i2group.com/Schemas/2011-03-03/ModelSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.i2group.com/Schemas/2011-03-03/ModelSchema schema3.xsd ">
+  <Value>Value</Value>
+</tns:SimplePropertyValue>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueryResult
+	xmlns:tns="http://www.i2group.com/Schemas/2013-10-03/ModelData/Provenance">
+	<Persons>
+		<Person>
+			<ItemId>pp1</ItemId>
+			<ItemVersion>0</ItemVersion>
+			<SecurityTagIds>
+				<SecurityTagId>UC</SecurityTagId>
+				<SecurityTagId>OSI</SecurityTagId>
+			</SecurityTagIds>
+			<PropertyBags>
+				<PropertyBag>
+					<DateTimes>
+						<DateTime>2014-01-01T12:00:00+00:00</DateTime>
+						<DateTime>2014-01-21T12:00:00+00:00</DateTime>
+					</DateTimes>
+				</PropertyBag>
+			</PropertyBags>
+			<Cards>
+				<Card>
+					<tns:CardProvenance>
+						<RetrievalBlocks />
+						<OriginId Type="IAP.SDK.Example" Version="1">
+							<Key>
+								<String>data1.xml</String>
+								<String>pp1</String>
+							</Key>
+						</OriginId>
+					</tns:CardProvenance>
+					<Person_DateofBirth>1972-11-01T00:00:00+00:00</Person_DateofBirth>
+					<Person_FullName>
+						<Person_FamilyName>Six Pack</Person_FamilyName>
+						<Person_First_Given_Name>Joe</Person_First_Given_Name>
+					</Person_FullName>
+					<Person_Imagery>
+						<Person_Image>
+							<DocumentId>documents/picture1.jpg</DocumentId>
+							<Name>picture1.jpg</Name>
+						</Person_Image>
+					</Person_Imagery>
+				</Card>
+			</Cards>
+		</Person>
+	</Persons>
+</QueryResult>

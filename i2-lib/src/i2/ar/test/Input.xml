@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<defns:CommunicationEvent
+	xmlns:defns="http://www.ibm.com/ia/xmlns/default/TestbedBOM/model"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.ibm.com/ia/xmlns/default/TestbedBOM/model model.xsd">
+	<defns:callee>DEF</defns:callee>
+	<defns:caller>ABC</defns:caller>
+	<defns:timestamp>2016-01-01T09:01:02+02:00</defns:timestamp>
+</defns:CommunicationEvent>

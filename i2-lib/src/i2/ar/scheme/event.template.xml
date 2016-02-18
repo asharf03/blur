@@ -1,0 +1,9 @@
+<Event_UniqueReference>#id</Event_UniqueReference>
+<Event_EventDetails>
+	<Event_EventType>#type</Event_EventType>
+	<Event_EventStartDateandTime><DateTime>#timestamp</DateTime></Event_EventStartDateandTime>
+	<Event_EventDescription>#description</Event_EventDescription>
+</Event_EventDetails>
+<Event_CrimeDetails>
+	<Event_CrimeLocation>#location</Event_CrimeLocation>
+</Event_CrimeDetails>

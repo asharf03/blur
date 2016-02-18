@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueryResult
+	xmlns:tns="http://www.i2group.com/Schemas/2013-10-03/ModelData/Provenance">
+	<Persons>#person_list</Persons>
+	<Events>#event_list</Events>
+	<Addresss>#address_list</Addresss>
+	<Vehicles>#vehicle_list</Vehicles>
+	<Organizations>#org_list</Organizations>
+	<AccessTos>#accessto_list</AccessTos>
+	<Associates>#associate_list</Associates>
+	<MemberOfs>#memberof_list</MemberOfs>
+</QueryResult>
