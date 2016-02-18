@@ -29,6 +29,7 @@ public class ArCommand {
 	List<String> f_associateList = new ArrayList<String>();
 	List<String> f_accessToList = new ArrayList<String>();
 	List<String> f_memberOfList = new ArrayList<String>();
+	List<String> f_involvedInList = new ArrayList<String>();
 	
 	String f_queryTemplate;
 	String f_entityTemplate;
@@ -43,6 +44,7 @@ public class ArCommand {
 	String f_associateTemplate;
 	String f_accessToTemplate;
 	String f_memberOfTemplate;
+	String f_involvedInTemplate;
 	
 	public ArCommand() {
 		f_queryTemplate  = fileToString("scheme/query.template.xml");
@@ -58,6 +60,7 @@ public class ArCommand {
 		f_associateTemplate = fileToString("scheme/associate.template.xml");
 		f_accessToTemplate = fileToString("scheme/accessto.template.xml");
 		f_memberOfTemplate = fileToString("scheme/memberof.template.xml");
+		f_involvedInTemplate = fileToString("scheme/involvedin.template.xml");
 	}
 
 	public void execute() {
@@ -69,7 +72,8 @@ public class ArCommand {
 				.replaceAll("#org_list", String.join("\n", f_orgList))
 				.replaceAll("#associate_list", String.join("\n", f_associateList))
 				.replaceAll("#memberof_list", String.join("\n", f_memberOfList))
-				.replaceAll("#accessto_list", String.join("\n", f_accessToList));
+				.replaceAll("#accessto_list", String.join("\n", f_accessToList))
+				.replaceAll("#involvedin_list", String.join("\n", f_involvedInList));
 
 		// Debug
 		System.out.println( command );
@@ -184,6 +188,19 @@ public class ArCommand {
 		f_memberOfList.add(instance);
 	}
 
+	public void createInvolvedIn(String id, String type, String fromId, String toId) {
+		String instance = f_linkTemplate
+				.replaceAll("#link_type", "InvolvedIn")
+				.replaceAll("#link_content", f_involvedInTemplate)
+				.replaceAll("#id", id)
+				.replaceAll("#role", type)
+				.replaceAll("#from", fromId)
+				.replaceAll("#to", toId);
+		
+		f_involvedInList.add(instance);
+	}
+
+	
 	private String fileToString(String name) {
 		try {
 			String dir = this.getClass().getPackage().toString().replace('.', '/').substring(8);
