@@ -21,14 +21,7 @@ public class BridgeResource {
 
 	@POST
 	public Response post(String content) {
-		System.out.println( "Post: " + content );
-		
-		IDataLoader dl = new AnalysisRepositoryLoader();
-		IExternalDataItemEditor itemEditor = new ExampleItemEditor();
-
-		InputStream is = this.getClass().getResourceAsStream("Input.xml");
-		dl.createItems(new StreamSource(is), itemEditor);
-		
+		System.out.println(content);
 		return Response.ok().build();
 	}
 	
