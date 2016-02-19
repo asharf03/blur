@@ -12,6 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<i2sdk>C:\IBM\i2analyze\SDK\sdk-projects\master</i2sdk>
 	</properties>
 
 	<dependencies>
@@ -89,4 +90,43 @@
 
 
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<executable><!--path-to-your-java8-home-directoru -->
+					</executable>
+					<compilerVersion>1.8</compilerVersion>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.googlecode.addjars-maven-plugin</groupId>
+				<artifactId>addjars-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-jars</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${i2sdk}/build/toolkit/application/shared/lib</directory>
+								</resource>
+								<resource>
+									<directory>${i2sdk}/build/toolkit/application/client/bin</directory>
+								</resource>
+								<resource>
+									<directory>${i2sdk}/build/toolkit/application/client/lib</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

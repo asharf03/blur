@@ -56,7 +56,7 @@ public final class ExampleItemEditor implements IExternalDataItemEditor
      *            {@link PropertyBag}s that contain the created and modified
      *            time stamps.
      */
-    @Override
+    
     public void edit(final Item item, final Collection<PropertyBag> propertyBags)
     {
         final List<Calendar> timeStamps = getTimeStampsFromPropertyBag(propertyBags);
