@@ -3,6 +3,7 @@
 	<name>blur-bridge</name>
 	<comment></comment>
 	<projects>
+		<project>i2-lib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
