@@ -12,21 +12,17 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class RestServer {
 
 	public static void main(String[] args) {
-		URI baseUri = UriBuilder.fromUri("http://localhost/").port(9082).build();
+		URI baseUri = UriBuilder.fromUri("http://localhost/rest").port(9083).build();
 		ResourceConfig config = new ResourceConfig(BlurBridgeResource.class);
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(baseUri, config);
 		try {
 			server.start();
+			System.in.read();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		try {
-			Thread.currentThread().sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		server.shutdown();
 	}
 }
