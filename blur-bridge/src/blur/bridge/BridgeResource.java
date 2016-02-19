@@ -1,7 +1,7 @@
 package blur.bridge;
 
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.StringReader;
 import java.util.Random;
 
 import javax.ws.rs.POST;
@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import i2.ar.ArCommand;
@@ -31,7 +32,7 @@ public class BridgeResource {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 		try {
-			doc = factory.newDocumentBuilder().parse(content);
+			doc = factory.newDocumentBuilder().parse(new InputSource(new StringReader(content)));
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}

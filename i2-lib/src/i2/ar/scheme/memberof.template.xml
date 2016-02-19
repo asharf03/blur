@@ -1,7 +1,0 @@
-<MemberOf_AdditionalInformation>#info</MemberOf_AdditionalInformation>
-<MemberOf_MembershipDetails>
-	<MemberOf_MembershipEndDate>#end_date</MemberOf_MembershipEndDate>
-	<MemberOf_MembershipStartDate>#start_date</MemberOf_MembershipStartDate>
-	<MemberOf_Role>#role</MemberOf_Role>
-</MemberOf_MembershipDetails>
-<MemberOf_UniqueReference>#id</MemberOf_UniqueReference>

@@ -1,7 +1,0 @@
-<Associate_AdditionalInformation>#info</Associate_AdditionalInformation>
-<Associate_AssociationDetails>
-	<Associate_AssociationEndDate>#end_date</Associate_AssociationEndDate>
-	<Associate_AssociationStartDate>#start_date</Associate_AssociationStartDate>
-	<Associate_AssociationType>#type</Associate_AssociationType>
-</Associate_AssociationDetails>
-<Associate_UniqueReference>#id</Associate_UniqueReference>

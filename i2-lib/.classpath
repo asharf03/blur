@@ -13,8 +13,8 @@
 	<classpathentry kind="lib" path="lib/jna-4.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jna-platform-4.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/da-example-common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/master"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/da-example-common"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/master"/>
 	<classpathentry kind="lib" path="lib/schema.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

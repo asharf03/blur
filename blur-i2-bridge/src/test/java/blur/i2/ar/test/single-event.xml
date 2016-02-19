@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<defns:Alert xmlns:defns="http://www.ibm.com/ia/xmlns/default/Blur-BOM/model"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.ibm.com/ia/xmlns/default/Blur-BOM/model model.xsd"
+ >
+  <defns:building>bld-Tx-5</defns:building>
+  <defns:hours24>0.0</defns:hours24>
+  <defns:message>ppl-Txm-21 is a criminal: Because he entered a criminal building.&lt;br&gt;At time  0:2 is at bld-Tx-5.&lt;br&gt;</defns:message>
+  <defns:minues30>0.0</defns:minues30>
+  <defns:organization>org_bx</defns:organization>
+  <defns:person>ppl-Txm-21</defns:person>
+  <defns:timestamp>2016-01-01T00:02+02:00</defns:timestamp>
+</defns:Alert>

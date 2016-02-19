@@ -1,9 +1,0 @@
-<InvolvedIn_AdditionalInformation>#info</InvolvedIn_AdditionalInformation>
-<InvolvedIn_InvolvementEndDateandTime>
-	<DateTime>#end_date</DateTime>
-</InvolvedIn_InvolvementEndDateandTime>
-<InvolvedIn_InvolvementStartDateandTime>
-	<DateTime>#start_date</DateTime>
-</InvolvedIn_InvolvementStartDateandTime>
-<InvolvedIn_InvolvementType>#type</InvolvedIn_InvolvementType>
-<InvolvedIn_UniqueReference>#id</InvolvedIn_UniqueReference>

@@ -1,0 +1,5 @@
+<Address_UniqueReference>#id</Address_UniqueReference>
+<Address_BuildingName>#id</Address_BuildingName>
+<Address_Latitude>#latitude</Address_Latitude>
+<Address_Longitude>#longitude</Address_Longitude>
+<Address_LocationType>#type</Address_LocationType>

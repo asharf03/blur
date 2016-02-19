@@ -1,9 +1,0 @@
-<Person_Identification>
-	<Person_IdentificationNumber>#id</Person_IdentificationNumber>
-</Person_Identification>
-<Person_UniqueReference>#id</Person_UniqueReference>
-<Person_DateofBirth>#dob</Person_DateofBirth>
-<Person_FullName>
-	<Person_First_Given_Name>#first_name</Person_First_Given_Name>
-	<Person_FamilyName>#family_name</Person_FamilyName>
-</Person_FullName>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="unqualified" version="1.0" targetNamespace="http://www.i2group.com/Schemas/2013-10-03/ModelData/Provenance" xmlns:tns="http://www.i2group.com/Schemas/2013-10-03/ModelData/Provenance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="CardProvenance" type="tns:CardProvenance"/>
+
+  <xs:element name="OriginIdentifier" type="tns:OriginIdentifier"/>
+
+  <xs:element name="RetrievalBlock" type="tns:RetrievalBlock"/>
+
+  <xs:element name="RetrievalBlockIdentifier" type="tns:RetrievalBlockIdentifier"/>
+
+  <xs:element name="RetrievalDatum" type="tns:RetrievalDatum"/>
+
+  <xs:complexType name="CardProvenance" final="extension restriction">
+    <xs:all>
+      <xs:element name="OriginId" type="tns:OriginIdentifier"/>
+      <xs:element name="RetrievalBlocks">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RetrievalBlock" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="OriginIdentifier" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="Key">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="String" type="xs:string" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Type" type="xs:string" use="required"/>
+    <xs:attribute name="Version" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="RetrievalBlock" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="Id" type="tns:RetrievalBlockIdentifier"/>
+      <xs:element name="RetrievalData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:RetrievalDatum" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RetrievalBlockIdentifier" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="Key">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="String" type="xs:string" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Type" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="RetrievalDatum" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="Value">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="String" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Key" type="xs:string" use="required"/>
+  </xs:complexType>
+</xs:schema>
+
