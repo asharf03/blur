@@ -6,12 +6,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.io.IOUtils;
 
+import com.i2group.apollo.externaldata.connector.IExternalDataItemEditor;
+import com.i2group.apollo.externaldata.loader.AnalysisRepositoryLoader;
+import com.i2group.apollo.externaldata.loader.IDataLoader;
+
 public class ArCommand {
+	public static final String GENERATE_ID = null;
+
+	Random f_random = new Random();
 	Map<String, Long> f_purgeList = new HashMap<String, Long>();
 	
 	List<String> f_personList = new ArrayList<String>();
@@ -73,7 +81,7 @@ public class ArCommand {
 		System.out.println( command );
 		//System.exit(1);
 		
-		System.setProperty("ApolloServerSettingsResource", "i2/ar/loader.properties");
+		System.setProperty("ApolloServerSettingsResource", "blur/i2/ar/loader.properties");
 		IDataLoader dl = new AnalysisRepositoryLoader();
 		IExternalDataItemEditor itemEditor = new ExampleItemEditor();
 
@@ -109,6 +117,8 @@ public class ArCommand {
 	}
 
 	public void createEvent(String id, String type, String timestamp, String description, String location) {
+		if( id == GENERATE_ID ) { id = String.valueOf(Math.abs(f_random.nextLong())); }
+		
 		String instance = f_entityTemplate
 				.replaceAll("#entity_type", "Event")
 				.replaceAll("#entity_content", f_eventTemplate)
@@ -183,11 +193,13 @@ public class ArCommand {
 	}
 
 	public void createInvolvedIn(String id, String type, String fromId, String toId) {
+		if( id == GENERATE_ID ) { id = String.valueOf(Math.abs(f_random.nextLong())); }
+		
 		String instance = f_linkTemplate
 				.replaceAll("#link_type", "InvolvedIn")
 				.replaceAll("#link_content", f_involvedInTemplate)
 				.replaceAll("#id", id)
-				.replaceAll("#role", type)
+				.replaceAll("#type", type)
 				.replaceAll("#from", fromId)
 				.replaceAll("#to", toId);
 		

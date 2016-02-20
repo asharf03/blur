@@ -17,7 +17,7 @@ public class TestClient1 {
 	public void run() {
 		try {
 			HttpClient client = new DefaultHttpClient();
-			HttpPost post = new HttpPost("http://localhost:9081/blur-bridge/rest/bridge/1.0");
+			HttpPost post = new HttpPost("http://localhost:9090/rest/bridge");
 			InputStream is = this.getClass().getResourceAsStream("single-event.xml");
 			StringEntity input = new StringEntity(IOUtils.toString(is, "UTF-8"));
 			post.setEntity(input);
