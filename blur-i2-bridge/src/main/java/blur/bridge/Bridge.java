@@ -39,37 +39,44 @@ public class Bridge {
 
 	@POST
 	public Response bridge(String content) {
-		Document doc = null;
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
 		try {
+			Document doc = null;
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
 			doc = factory.newDocumentBuilder().parse(new InputSource(new StringReader(content)));
-		} catch (SAXException | IOException | ParserConfigurationException e) {
+
+			String timestamp = getTextForTag(doc, "defns:timestamp");
+			String message = getTextForTag(doc, "defns:message").replaceAll("<.*>", "");
+			String personId = getTextForTag(doc, "defns:person");
+			String orgId = getTextForTag(doc, "defns:organization");
+			String buildingId = getTextForTag(doc, "defns:building");
+
+			System.out.println(String.format("Processing Alert: %s", message));
+			// System.out.println(timestamp);
+			// System.out.println(message);
+			// System.out.println(personId);
+			// System.out.println(orgId);
+			// System.out.println(buildingId);
+
+			ArCommand arc = new ArCommand();
+
+			Random random = new Random();
+			String eventId = String.valueOf(Math.abs(random.nextLong()));
+
+			arc.createEvent(eventId, message, timestamp, message, "");
+			arc.createInvolvedIn(null, "Involved", eventId, personId);
+			arc.createInvolvedIn(null, "Involved", eventId, buildingId);
+			arc.createInvolvedIn(null, "Involved", eventId, orgId);
+			arc.execute();
+
+			System.out.println(String.format("Created Event %s in i2 Ar", eventId));
+
+			return Response.ok().build();
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
-
-		String timestamp = getTextForTag(doc, "defns:timestamp");
-		String message = getTextForTag(doc, "defns:message").replaceAll("<.*>", "");
-		String personId = getTextForTag(doc, "defns:person");
-		String orgId = getTextForTag(doc, "defns:organization");
-		String buildingId = getTextForTag(doc, "defns:building");
-
-		System.out.println(timestamp);
-		System.out.println(message);
-		System.out.println(personId);
-		System.out.println(orgId);
-		System.out.println(buildingId);
-
-		ArCommand arc = new ArCommand();
-		Random random = new Random();
-		String eventId = String.valueOf(random.nextLong());
-		arc.createEvent(eventId, "Blur Alert", timestamp, message, "");
-		arc.createInvolvedIn(null, "Involved", eventId, personId);
-		arc.createInvolvedIn(null, "Involved", eventId, buildingId);
-		arc.createInvolvedIn(null, "Involved", eventId, orgId);
-		arc.execute();
-		return Response.ok().build();
 	}
 
 	private String getTextForTag(Document doc, String tag) {

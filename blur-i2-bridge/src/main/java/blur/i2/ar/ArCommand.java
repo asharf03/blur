@@ -78,7 +78,7 @@ public class ArCommand {
 				.replaceAll("#involvedin_list", String.join("\n", f_involvedInList));
 
 		// Debug
-		System.out.println( command );
+		//System.out.println( command );
 		//System.exit(1);
 		
 		System.setProperty("ApolloServerSettingsResource", "blur/i2/ar/loader.properties");

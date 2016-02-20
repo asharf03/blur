@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<i2sdk>C:\IBM\i2analyze\SDK\sdk-projects\master</i2sdk>
+		<i2sdk>C:\IBM\i2analyze\SDK\sdk-projects</i2sdk>
 	</properties>
 
 	<dependencies>
@@ -67,13 +67,16 @@
 						<configuration>
 							<resources>
 								<resource>
-									<directory>${i2sdk}/build/toolkit/application/shared/lib</directory>
+									<directory>${i2sdk}/master/build/toolkit/application/shared/lib</directory>
 								</resource>
 								<resource>
-									<directory>${i2sdk}/build/toolkit/application/client/bin</directory>
+									<directory>${i2sdk}/master/build/toolkit/application/client/bin</directory>
 								</resource>
 								<resource>
-									<directory>${i2sdk}/build/toolkit/application/client/lib</directory>
+									<directory>${i2sdk}/master/build/toolkit/application/client/lib</directory>
+								</resource>
+								<resource>
+									<directory>${i2sdk}/da-arload-filesystem-example/schema-mapping-jar</directory>
 								</resource>
 							</resources>
 						</configuration>
