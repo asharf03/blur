@@ -78,7 +78,7 @@ public class ArCommand {
 				.replaceAll("#involvedin_list", String.join("\n", f_involvedInList));
 
 		// Debug
-		//System.out.println( command );
+		System.out.println( command );
 		//System.exit(1);
 		
 		System.setProperty("ApolloServerSettingsResource", "blur/i2/ar/loader.properties");
@@ -192,7 +192,7 @@ public class ArCommand {
 		f_memberOfList.add(instance);
 	}
 
-	public void createInvolvedIn(String id, String type, String fromId, String toId) {
+	public void createInvolvedIn(String id, String type, String fromId, String toId, String startDate) {
 		if( id == GENERATE_ID ) { id = String.valueOf(Math.abs(f_random.nextLong())); }
 		
 		String instance = f_linkTemplate
@@ -201,7 +201,8 @@ public class ArCommand {
 				.replaceAll("#id", id)
 				.replaceAll("#type", type)
 				.replaceAll("#from", fromId)
-				.replaceAll("#to", toId);
+				.replaceAll("#to", toId)
+				.replaceAll("#start_date", startDate);
 		
 		f_involvedInList.add(instance);
 	}

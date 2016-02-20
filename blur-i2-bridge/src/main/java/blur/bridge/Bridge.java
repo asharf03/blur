@@ -51,8 +51,11 @@ public class Bridge {
 			String orgId = getTextForTag(doc, "defns:organization");
 			String buildingId = getTextForTag(doc, "defns:building");
 
+			timestamp = timestamp.substring(0, timestamp.length() - 6);
+			timestamp = new StringBuffer(timestamp).append(":00").toString();
+			
 			System.out.println(String.format("Processing Alert: %s", message));
-			// System.out.println(timestamp);
+			System.out.println(timestamp);
 			// System.out.println(message);
 			// System.out.println(personId);
 			// System.out.println(orgId);
@@ -63,10 +66,10 @@ public class Bridge {
 			Random random = new Random();
 			String eventId = String.valueOf(Math.abs(random.nextLong()));
 
-			arc.createEvent(eventId, message, timestamp, message, "");
-			arc.createInvolvedIn(null, "Involved", eventId, personId);
-			arc.createInvolvedIn(null, "Involved", eventId, buildingId);
-			arc.createInvolvedIn(null, "Involved", eventId, orgId);
+			arc.createEvent(eventId, "Blur Alert", timestamp, message, "");
+			arc.createInvolvedIn(null, "Involved", eventId, personId, timestamp);
+			arc.createInvolvedIn(null, "Involved", eventId, buildingId, timestamp);
+			arc.createInvolvedIn(null, "Involved", eventId, orgId, timestamp);
 			arc.execute();
 
 			System.out.println(String.format("Created Event %s in i2 Ar", eventId));
