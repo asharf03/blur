@@ -22,6 +22,7 @@ public class LoadDataToAr {
 		ltar.db_structure();
 		ltar.db_vehicles();
 		ltar.ob_org();
+		ltar.fake_events();
 	}
 
 	private void db_people() {
@@ -149,6 +150,12 @@ public class LoadDataToAr {
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
+	}
+	
+	private void fake_events() {
+		ArCommand arc = new ArCommand();
+		
+		//arc.createEvent(id, type, timestamp, description, location);
 	}
 	
 	private Reader fileToReader(String name) {

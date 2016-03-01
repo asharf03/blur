@@ -1,0 +1,10 @@
+enter building, person1, building1, 2016-01-01T12:00:01 
+exit  building, person1  building1, 2016-01-01T12:05:00
+enter building, person1, building2, 2016-01-01T12:10:01
+call,           person1, person2,   2016-01-01T12:10:02
+call,           person1, person3,   2016-01-01T12:10:30
+make criminal,  person1,            2016-01-01T12:10:00
+make innocent,  person1,            2016-01-01T12:10:01
+
+
+
