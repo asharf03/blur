@@ -54,8 +54,8 @@ public class Bridge {
 			timestamp = timestamp.substring(0, timestamp.length() - 6);
 			timestamp = new StringBuffer(timestamp).append(":00").toString();
 			
-			System.out.println(String.format("Processing Alert: %s", message));
-			System.out.println(timestamp);
+			// System.out.println(String.format("Processing Alert: %s", message));
+			// System.out.println(timestamp);
 			// System.out.println(message);
 			// System.out.println(personId);
 			// System.out.println(orgId);
@@ -70,9 +70,9 @@ public class Bridge {
 			arc.createInvolvedIn(null, "Involved", eventId, personId, timestamp);
 			arc.createInvolvedIn(null, "Involved", eventId, buildingId, timestamp);
 			arc.createInvolvedIn(null, "Involved", eventId, orgId, timestamp);
-			arc.execute();
+			//arc.execute();
 
-			System.out.println(String.format("Created Event %s in i2 Ar", eventId));
+			System.out.println(content);
 
 			return Response.ok().build();
 			

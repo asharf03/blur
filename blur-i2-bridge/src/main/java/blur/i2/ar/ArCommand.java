@@ -32,6 +32,7 @@ public class ArCommand {
 	List<String> f_accessToList = new ArrayList<String>();
 	List<String> f_memberOfList = new ArrayList<String>();
 	List<String> f_involvedInList = new ArrayList<String>();
+	List<String> f_communicationList = new ArrayList<String>();
 	
 	String f_queryTemplate;
 	String f_entityTemplate;
@@ -47,6 +48,7 @@ public class ArCommand {
 	String f_accessToTemplate;
 	String f_memberOfTemplate;
 	String f_involvedInTemplate;
+	String f_communicationTemplate;
 	
 	public ArCommand() {
 		f_queryTemplate  = fileToString("scheme/query.template.xml");
@@ -63,6 +65,7 @@ public class ArCommand {
 		f_accessToTemplate = fileToString("scheme/accessto.template.xml");
 		f_memberOfTemplate = fileToString("scheme/memberof.template.xml");
 		f_involvedInTemplate = fileToString("scheme/involvedin.template.xml");
+		f_communicationTemplate = fileToString("scheme/communication.template.xml");
 	}
 
 	public void execute() {
@@ -75,10 +78,11 @@ public class ArCommand {
 				.replaceAll("#associate_list", String.join("\n", f_associateList))
 				.replaceAll("#memberof_list", String.join("\n", f_memberOfList))
 				.replaceAll("#accessto_list", String.join("\n", f_accessToList))
-				.replaceAll("#involvedin_list", String.join("\n", f_involvedInList));
+				.replaceAll("#involvedin_list", String.join("\n", f_involvedInList))
+				.replaceAll("#communication_list", String.join("\n", f_communicationList));
 
 		// Debug
-		System.out.println( command );
+		//System.out.println( command );
 		//System.exit(1);
 		
 		System.setProperty("ApolloServerSettingsResource", "blur/i2/ar/loader.properties");
@@ -207,7 +211,23 @@ public class ArCommand {
 		f_involvedInList.add(instance);
 	}
 
-	
+	public void createCommunication(String id, String type, String fromId, String toId, String startDate, String endDate, String duration) {
+		if( id == GENERATE_ID ) { id = String.valueOf(Math.abs(f_random.nextLong())); }
+		
+		String instance = f_linkTemplate
+				.replaceAll("#link_type", "Communication")
+				.replaceAll("#link_content", f_communicationTemplate)
+				.replaceAll("#id", id)
+				.replaceAll("#type", type)
+				.replaceAll("#from", fromId)
+				.replaceAll("#to", toId)
+				.replaceAll("#start_date", startDate)
+				.replaceAll("#end_date", startDate)
+				.replaceAll("#duration", startDate);
+		
+		f_communicationList.add(instance);
+	}
+
 	private String fileToString(String name) {
 		try {
 			String dir = this.getClass().getPackage().toString().replace('.', '/').substring(8);

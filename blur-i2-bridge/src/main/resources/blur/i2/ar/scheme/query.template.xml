@@ -10,4 +10,5 @@
 	<Associates>#associate_list</Associates>
 	<MemberOfs>#memberof_list</MemberOfs>
 	<InvolvedIns>#involvedin_list</InvolvedIns>
+	<Communications>#communication_list</Communications>
 </QueryResult>

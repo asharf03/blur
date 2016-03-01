@@ -1,0 +1,10 @@
+<Communication_AdditionalInformation>#info</Communication_AdditionalInformation>
+<Communication_CommunicationEndDateandTime>
+	<DateTime>#end_date</DateTime>
+</Communication_CommunicationEndDateandTime>
+<Communication_CommunicationStartDateandTime>
+	<DateTime>#start_date</DateTime>
+</Communication_CommunicationStartDateandTime>
+<Communication_CommunicationDuration>#duration</Communication_CommunicationDuration>
+<Communication_CommunicationType>#type</Communication_CommunicationType>
+<Communication_UniqueReference>#id</Communication_UniqueReference>
