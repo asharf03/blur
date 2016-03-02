@@ -1,19 +1,19 @@
 # Simple test scenario
 
 # Date Time TZ               Event           Event Data
-# -----------------------------------------------------------------
-  2016-01-01T12:00:00+02:00, enter building, person1,       building1  
-  +1,                        call,           person1,       person2   
-  +120,                      exit  building, person1,       building1 
-  +600,                      enter building, person1,       Bada Bing! 
-  +60,                       call,           Tony Soprano,  person1 
-  +180,                      call,           person2,       person1
-  +30,                       call,           person1,       person3
-  +10,                       call,           person3,       Richie Aprile
-  +5,                        call,           person1,       person4
-  +1,                        enter building, Richie Aprile, building1
-  +5,                        call,           Richie Aprile, Tony Soprano       
-  +1600,                     make criminal,  person1,       Received a call from a known criminal (Tony Soprano) while located at a known criminal location (Bada Bing!) for more than 30 minutes"            
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  2016-01-01T12:00:00+02:00, enter building, ppl-Txe-82,       bld-To-10  
+  +1,                        call,           ppl-Txe-82,       ppl-To-2   
+  +120,                      exit  building, ppl-Txe-82,       building1 
+  +600,                      enter building, ppl-Txe-82,       Bada Bing! 
+  +60,                       call,           Tony Soprano,     ppl-Txe-82 
+  +180,                      call,           ppl-To-2,         ppl-Txe-82
+  +30,                       call,           ppl-Txe-82,       ppl-To-2
+  +10,                       call,           ppl-To-3,         Richie Aprile
+  +5,                        call,           ppl-Txe-82,       ppl-To-4
+  +1,                        enter building, Richie Aprile,    bld-To-10
+  +5,                        call,           Richie Aprile,    Tony Soprano       
+  +1600,                     make criminal,  ppl-Txe-82,       Received a call from a known criminal (Tony Soprano) while located at a known criminal location (Bada Bing!) for more than 30 minutes           
   
 
 
