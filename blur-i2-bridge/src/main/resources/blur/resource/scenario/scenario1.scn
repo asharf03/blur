@@ -4,7 +4,7 @@
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   2016-01-01T12:00:00+02:00,  enter building,  eb1,      ppl-Txe-82,       bld-To-10  
   +1,                         call,            c1,       ppl-Txe-82,       ppl-To-2,           280   
-  +600,                       exit  building,  xb1,      ppl-Txe-82,       building1 
+  +600,                       exit  building,  xb1,      ppl-Txe-82,       bld-To-10 
   +900,                       enter building,  eb2,      ppl-Txe-82,       Bada Bing! 
   +60,                        call,            c2,       Tony Soprano,     ppl-Txe-82,         45 
   +180,                       call,            c3,       ppl-To-2,         ppl-Txe-82,         2

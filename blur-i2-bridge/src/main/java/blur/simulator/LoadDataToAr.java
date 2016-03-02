@@ -97,7 +97,7 @@ public class LoadDataToAr {
 				
 				arc.createAddress(id, type, lat, lon );
 				String linkId = String.valueOf(random.nextLong());
-				arc.createAccessTo(linkId, "Owns", owner, id);
+				//arc.createAccessTo(linkId, "Owns", owner, id);
 			}
 			
 			arc.execute();			
@@ -141,7 +141,7 @@ public class LoadDataToAr {
 				arc.createVehicle(id, make, model, year, type );
 				
 				String linkId = String.valueOf(random.nextLong());
-				arc.createAccessTo(linkId, "Owns", owner, id);
+				//arc.createAccessTo(linkId, "Owns", owner, id);
 			}
 			
 			arc.execute();			

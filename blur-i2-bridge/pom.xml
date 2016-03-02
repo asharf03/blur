@@ -80,7 +80,7 @@
 									<directory>${i2sdk}/master/build/toolkit/application/client/lib</directory>
 								</resource>
 								<resource>
-									<directory>${i2sdk}/da-arload-filesystem-example/schema-mapping-jar</directory>
+									<directory>lib/scheme.jar</directory>
 								</resource>
 							</resources>
 						</configuration>

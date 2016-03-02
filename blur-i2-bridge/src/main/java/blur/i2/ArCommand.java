@@ -171,14 +171,15 @@ public class ArCommand {
 		f_associateList.add(instance);
 	}
 	
-	public void createAccessTo(String id, String type, String fromId, String toId) {
+	public void createAccessTo(String id, String type, String fromId, String toId, String startDate, String info) {
 		String instance = f_linkTemplate
 				.replaceAll("#link_type", "AccessTo")
 				.replaceAll("#link_content", f_accessToTemplate)
 				.replaceAll("#id", id)
 				.replaceAll("#type", type)
 				.replaceAll("#from", fromId)
-				.replaceAll("#to", toId);
+				.replaceAll("#to", toId)
+				.replaceAll("#info", info);
 		
 		f_accessToList.add(instance);
 	}
@@ -210,7 +211,7 @@ public class ArCommand {
 		f_involvedInList.add(instance);
 	}
 
-	public void createCommunication(String id, String type, String fromId, String toId, String startDate, String endDate, String duration) {
+	public void createCommunication(String id, String type, String fromId, String toId, String startDate, String duration) {
 		if( id == GENERATE_ID ) { id = String.valueOf(Math.abs(f_random.nextLong())); }
 		
 		String instance = f_linkTemplate
@@ -221,7 +222,7 @@ public class ArCommand {
 				.replaceAll("#from", fromId)
 				.replaceAll("#to", toId)
 				.replaceAll("#start_date", startDate)
-				.replaceAll("#end_date", startDate)
+				//.replaceAll("#end_date", startDate)
 				.replaceAll("#duration", startDate);
 		
 		f_communicationList.add(instance);

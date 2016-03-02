@@ -83,18 +83,17 @@ public class Simulator {
 				String personId = r.get(3);
 				String buildingId = r.get(4);
 
-				arc.createEvent(eventId, eventType, eventTimestamp, "", "");
-				arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, personId, eventTimestamp);
-				arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, buildingId, eventTimestamp);
-				arc.createAccessTo(arc.GENERATE_ID, eventType, personId, buildingId);
+				//arc.createEvent(eventId, eventType, eventTimestamp, "", "");
+				//arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, personId, eventTimestamp);
+				//arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, buildingId, eventTimestamp);
+				arc.createAccessTo(eventId, eventType, personId, buildingId, eventTimestamp, String.format("source: event {0}", eventId));
 			
 			} else if (eventType.equals("call")) {
 				String callerId = r.get(3);
 				String calleeId = r.get(4);
 				String callDuration = r.get(5);
 
-				arc.createEvent(eventId, eventType, eventTimestamp, "", "");
-				arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, personId, eventTimestamp);
+				arc.createCommunication(eventId, "Phone Call", callerId, calleeId, eventTimestamp, callDuration);
 			}
 		}
 	}
