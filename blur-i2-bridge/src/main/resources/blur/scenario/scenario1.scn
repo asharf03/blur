@@ -11,6 +11,7 @@
   +30,                       call,           person1,       person3
   +10,                       call,           person3,       Richie Aprile
   +5,                        call,           person1,       person4
+  +1,                        enter building, Richie Aprile, building1
   +5,                        call,           Richie Aprile, Tony Soprano       
   +1600,                     make criminal,  person1,       Received a call from a known criminal (Tony Soprano) while located at a known criminal location (Bada Bing!) for more than 30 minutes"            
   
