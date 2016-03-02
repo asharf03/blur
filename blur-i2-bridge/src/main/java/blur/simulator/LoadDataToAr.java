@@ -1,4 +1,4 @@
-package blur;
+package blur.simulator;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +12,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
 
-import blur.i2.ar.ArCommand;
+import blur.i2.ArCommand;
 
 public class LoadDataToAr {
 	public static void main(String[] args) {

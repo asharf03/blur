@@ -8,7 +8,7 @@ import com.i2group.apollo.externaldata.connector.IExternalDataItemEditor;
 import com.i2group.apollo.externaldata.loader.AnalysisRepositoryLoader;
 import com.i2group.apollo.externaldata.loader.IDataLoader;
 
-import blur.i2.ar.ExampleItemEditor;
+import blur.i2.ExampleItemEditor;
 
 public class TestClient2 {
 

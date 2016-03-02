@@ -1,6 +1,5 @@
-package blur.i2.ar;
+package blur.i2;
 
-import java.io.InputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,11 +9,11 @@ import java.util.Random;
 
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.commons.io.IOUtils;
-
 import com.i2group.apollo.externaldata.connector.IExternalDataItemEditor;
 import com.i2group.apollo.externaldata.loader.AnalysisRepositoryLoader;
 import com.i2group.apollo.externaldata.loader.IDataLoader;
+
+import blur.utils.Utils;
 
 public class ArCommand {
 	public static final String GENERATE_ID = null;
@@ -51,21 +50,21 @@ public class ArCommand {
 	String f_communicationTemplate;
 	
 	public ArCommand() {
-		f_queryTemplate  = fileToString("scheme/query.template.xml");
-		f_entityTemplate = fileToString("scheme/entity.template.xml");
-		f_linkTemplate = fileToString("scheme/link.template.xml");
+		f_queryTemplate  = Utils.fileReader("scheme/query.template.xml");
+		f_entityTemplate = Utils.fileReader("scheme/entity.template.xml");
+		f_linkTemplate = Utils.fileReader("scheme/link.template.xml");
 		
-		f_eventTemplate  = fileToString("scheme/event.template.xml");
-		f_personTemplate = fileToString("scheme/person.template.xml");
-		f_addressTemplate = fileToString("scheme/address.template.xml");
-		f_vehicleTemplate = fileToString("scheme/vehicle.template.xml");
-		f_orgTemplate = fileToString("scheme/org.template.xml");
+		f_eventTemplate  = Utils.fileReader("scheme/event.template.xml");
+		f_personTemplate = Utils.fileReader("scheme/person.template.xml");
+		f_addressTemplate = Utils.fileReader("scheme/address.template.xml");
+		f_vehicleTemplate = Utils.fileReader("scheme/vehicle.template.xml");
+		f_orgTemplate = Utils.fileReader("scheme/org.template.xml");
 		
-		f_associateTemplate = fileToString("scheme/associate.template.xml");
-		f_accessToTemplate = fileToString("scheme/accessto.template.xml");
-		f_memberOfTemplate = fileToString("scheme/memberof.template.xml");
-		f_involvedInTemplate = fileToString("scheme/involvedin.template.xml");
-		f_communicationTemplate = fileToString("scheme/communication.template.xml");
+		f_associateTemplate = Utils.fileReader("scheme/associate.template.xml");
+		f_accessToTemplate = Utils.fileReader("scheme/accessto.template.xml");
+		f_memberOfTemplate = Utils.fileReader("scheme/memberof.template.xml");
+		f_involvedInTemplate = Utils.fileReader("scheme/involvedin.template.xml");
+		f_communicationTemplate = Utils.fileReader("scheme/communication.template.xml");
 	}
 
 	public void execute() {
@@ -226,19 +225,5 @@ public class ArCommand {
 				.replaceAll("#duration", startDate);
 		
 		f_communicationList.add(instance);
-	}
-
-	private String fileToString(String name) {
-		try {
-			String dir = this.getClass().getPackage().toString().replace('.', '/').substring(8);
-			StringBuffer sb = new StringBuffer().append('/').append(dir).append('/').append(name);
-
-			InputStream is = this.getClass().getResourceAsStream(sb.toString());
-			return IOUtils.toString(is, "UTF-8");
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
-
 	}
 }

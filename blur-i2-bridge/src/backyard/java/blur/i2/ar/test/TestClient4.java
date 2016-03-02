@@ -11,7 +11,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import blur.i2.ar.ArCommand;
+import blur.i2.ArCommand;
 
 public class TestClient4 {
 

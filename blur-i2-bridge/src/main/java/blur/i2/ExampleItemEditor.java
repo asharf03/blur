@@ -8,7 +8,7 @@
  * Contributors:
  *    IBM Corp - initial API and implementation and initial documentation
  */
-package blur.i2.ar;
+package blur.i2;
 
 import java.util.ArrayList;
 import java.util.Calendar;

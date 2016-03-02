@@ -1,6 +1,6 @@
 package blur.i2.ar.test;
 
-import blur.i2.ar.ArCommand;
+import blur.i2.ArCommand;
 
 public class TestClient3 {
 
