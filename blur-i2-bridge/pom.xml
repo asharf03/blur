@@ -80,7 +80,7 @@
 									<directory>${i2sdk}/master/build/toolkit/application/client/lib</directory>
 								</resource>
 								<resource>
-									<directory>lib/scheme.jar</directory>
+									<directory>lib</directory>
 								</resource>
 							</resources>
 						</configuration>

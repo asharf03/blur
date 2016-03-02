@@ -96,5 +96,7 @@ public class Simulator {
 				arc.createCommunication(eventId, "Phone Call", callerId, calleeId, eventTimestamp, callDuration);
 			}
 		}
+		
+		arc.execute();
 	}
 }

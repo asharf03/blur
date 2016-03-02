@@ -81,10 +81,10 @@ public class ArCommand {
 				.replaceAll("#communication_list", String.join("\n", f_communicationList));
 
 		// Debug
-		//System.out.println( command );
+		System.out.println( command );
 		//System.exit(1);
 		
-		System.setProperty("ApolloServerSettingsResource", "blur/i2/ar/loader.properties");
+		System.setProperty("ApolloServerSettingsResource", "blur/i2/loader.properties");
 		IDataLoader dl = new AnalysisRepositoryLoader();
 		IExternalDataItemEditor itemEditor = new ExampleItemEditor();
 
