@@ -1,11 +1,14 @@
+# Simple test scenario
+
 # Date Time TZ               Event           Event Data
 # -----------------------------------------------------------------
   2016-01-01T12:00:00+02:00, enter building, person1, building1  
   +1,                        call,           person1, person2   
-  +120,                      exit  building, person1  building1 
+  +120,                      exit  building, person1, building1 
   +600,                      enter building, person1, building3 
-  +180,                      call,           person3, person1   
-  +1,                        make criminal,  person1, "Received a call from a known criminal (person3) while located at a known criminal location (building3)"            
+  +180,                      call,           person2, person1
+  +60,                       call,           person3, person1 
+  +1801,                     make criminal,  person1, "Received a call from a known criminal (person3) while located at a known criminal location (building3) for more than 30 minutes"            
   
 
 
