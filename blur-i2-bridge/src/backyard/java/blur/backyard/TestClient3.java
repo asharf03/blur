@@ -1,4 +1,4 @@
-package blur.i2.ar.test;
+package blur.backyard;
 
 import blur.i2.ArCommand;
 

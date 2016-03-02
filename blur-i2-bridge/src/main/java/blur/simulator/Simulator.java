@@ -75,12 +75,26 @@ public class Simulator {
 				now = now + (Integer.valueOf(timestampOrDelta) * 1000);
 			}
 
-			System.out.println(Utils.formatTimestamp(now));
+			String eventTimestamp = Utils.formatTimestamp(now);
+			String eventType = r.get(1);
+			String eventId = r.get(2);
+
+			if (eventType.equals("enter building") || eventType.equals("exit building")) {
+				String personId = r.get(3);
+				String buildingId = r.get(4);
+
+				arc.createEvent(eventId, eventType, eventTimestamp, "", "");
+				arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, personId, eventTimestamp);
+				arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, buildingId, eventTimestamp);
+				arc.createAccessTo(arc.GENERATE_ID, eventType, personId, buildingId);
 			
-			String cmd = r.get(1);
-			switch (cmd) {
-			case "enter building":
-				break;
+			} else if (eventType.equals("call")) {
+				String callerId = r.get(3);
+				String calleeId = r.get(4);
+				String callDuration = r.get(5);
+
+				arc.createEvent(eventId, eventType, eventTimestamp, "", "");
+				arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId, personId, eventTimestamp);
 			}
 		}
 	}

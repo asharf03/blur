@@ -3,14 +3,14 @@
 # Date Time TZ                Event            Event Id  Event Data
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   2016-01-01T12:00:00+02:00,  enter building,  eb1,      ppl-Txe-82,       bld-To-10  
-  +1,                         call,            c1,       ppl-Txe-82,       ppl-To-2   
-  +120,                       exit  building,  xb1,      ppl-Txe-82,       building1 
-  +600,                       enter building,  eb2,      ppl-Txe-82,       Bada Bing! 
-  +60,                        call,            c2,       Tony Soprano,     ppl-Txe-82 
-  +180,                       call,            c3,       ppl-To-2,         ppl-Txe-82
-  +30,                        call,            c4,       ppl-Txe-82,       ppl-To-2
-  +10,                        call,            c5,       ppl-To-3,         Richie Aprile
-  +5,                         call,            c6,       ppl-Txe-82,       ppl-To-4
+  +1,                         call,            c1,       ppl-Txe-82,       ppl-To-2,           280   
+  +600,                       exit  building,  xb1,      ppl-Txe-82,       building1 
+  +900,                       enter building,  eb2,      ppl-Txe-82,       Bada Bing! 
+  +60,                        call,            c2,       Tony Soprano,     ppl-Txe-82,         45 
+  +180,                       call,            c3,       ppl-To-2,         ppl-Txe-82,         2
+  +30,                        call,            c4,       ppl-Txe-82,       ppl-To-2,           2
+  +10,                        call,            c5,       ppl-To-3,         Richie Aprile,      2
+  +5,                         call,            c6,       ppl-Txe-82,       ppl-To-4,           2
   +1,                         enter building,  eb3,      Richie Aprile,    bld-To-10
-  +5,                         call,            c7,       Richie Aprile,    Tony Soprano       
+  +5,                         call,            c7,       Richie Aprile,    Tony Soprano,       2       
   +1600,                      make criminal,   mc1,      ppl-Txe-82,       Received a call from a known criminal (Tony Soprano) while located at a known criminal location (Bada Bing!) for more than 30 minutes
