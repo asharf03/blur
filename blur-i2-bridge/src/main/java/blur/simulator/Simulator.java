@@ -2,11 +2,12 @@ package blur.simulator;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.StringReader;
+import java.text.DateFormat;
+import java.util.Date;
 
-import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
+import blur.i2.ArCommand;
 import blur.utils.Utils;
 
 /**
@@ -19,7 +20,7 @@ public class Simulator {
 
 	public static void main(String[] args) {
 		Simulator s = new Simulator();
-		//s.run();
+		// s.run();
 		s.doStart();
 	}
 
@@ -48,7 +49,7 @@ public class Simulator {
 				throw new RuntimeException();
 			}
 		}
-		
+
 		System.out.println("Done!");
 	}
 
@@ -61,17 +62,26 @@ public class Simulator {
 	}
 
 	private void doStart() {
-		try {
-			StringReader scenario = new StringReader(Utils.fileReader(SCENARIO));
-			Iterable<CSVRecord> records = CSVFormat.DEFAULT.withCommentMarker('#').withIgnoreEmptyLines().withIgnoreSurroundingSpaces().parse(scenario);
-			for (CSVRecord r : records) {
-				System.out.println(r.toString());
-				String time = r.get(0);
-				String cmd = r.get(1);
+		ArCommand arc = new ArCommand();
+		long now = System.currentTimeMillis();
+
+		Iterable<CSVRecord> csv = Utils.csvReader(SCENARIO);
+		for (CSVRecord r : csv) {
+
+			String timestampOrDelta = r.get(0);
+			if (!(timestampOrDelta.startsWith("+") || timestampOrDelta.startsWith("-"))) {
+				now = Utils.parseTimestamp(timestampOrDelta);
+			} else {
+				now = now + (Integer.valueOf(timestampOrDelta) * 1000);
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException();
+
+			System.out.println(Utils.formatTimestamp(now));
+			
+			String cmd = r.get(1);
+			switch (cmd) {
+			case "enter building":
+				break;
+			}
 		}
 	}
 }

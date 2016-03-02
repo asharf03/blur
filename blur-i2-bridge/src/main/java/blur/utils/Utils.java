@@ -3,6 +3,9 @@ package blur.utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -35,4 +38,17 @@ public class Utils {
 		}
 	}
 
+	private static SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");  
+	public static long parseTimestamp(String timestamp) {
+		try {
+			return SDF.parse(timestamp).getTime();
+		} catch (ParseException e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+	}
+	
+	public static String formatTimestamp(long timestamp) {
+		return SDF.format(new Date(timestamp));
+	}
 }
