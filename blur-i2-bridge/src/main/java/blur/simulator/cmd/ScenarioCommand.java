@@ -18,13 +18,14 @@ public class ScenarioCommand {
 	}
 
 	public void execute() {
-		ArProxy arc = new ArProxy();
-		long now = System.currentTimeMillis();
+		long now = 0;
+		long before = 0;
+		long sleep = 0;
 
 		Iterable<CSVRecord> csv = Utils.csvReader(f_scenario);
 		for (CSVRecord r : csv) {
-			long before = now;
-			
+			before = now;
+
 			String timestampOrDelta = r.get(0);
 			if (!(timestampOrDelta.startsWith("+") || timestampOrDelta.startsWith("-"))) {
 				now = Utils.parseTimestamp(timestampOrDelta);
@@ -32,8 +33,16 @@ public class ScenarioCommand {
 				now = now + (Integer.valueOf(timestampOrDelta) * 1000);
 			}
 
-			long sleep = now - before / 1000 / f_accelerationRatio;
-			
+			try {
+				sleep = now - before / 1000 / f_accelerationRatio;
+				Thread.sleep(sleep);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException();
+			}
+
+			ArProxy arc = new ArProxy();
+
 			String eventTimestamp = Utils.formatTimestamp(now);
 			String eventType = r.get(1);
 			String eventId = r.get(2);
