@@ -20,27 +20,30 @@ public class Simulator {
 	public static void main(String[] args) {
 		Simulator s = new Simulator();
 		// s.run();
-		s.doInit();
+		s.doSimulate();
 	}
 
 	public void run() {
 		String cmd = "";
 		BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-		while (!cmd.equals("quit")) {
-			System.out.println("Blur Simulator: reset, init, start, quit");
+		while (!cmd.equals("q") && !cmd.equals("quit")) {
+			System.out.println("Blur Simulator: reset, init, simulate, quit");
 			try {
 				cmd = stdin.readLine();
 				switch (cmd) {
+				case "r":
 				case "reset":
 					doReset();
 					break;
 
+				case "i":	
 				case "init":
 					doInit();
 					break;
 
-				case "start":
-					doStart();
+				case "s":	
+				case "simulate":
+					doSimulate();
 					break;
 				}
 			} catch (Exception e) {
@@ -61,9 +64,10 @@ public class Simulator {
 		cmd.execute();
 	}
 
-	private void doStart() {
+	private void doSimulate() {
 		ScenarioCommand cmd = new ScenarioCommand();
-		cmd.setScenario("scenario1.scn");
+		cmd.setDebug(true);
+		cmd.setScenario("/blur/resource/scenario/scenario1.scn");
 		cmd.setAccelerationRatio(1);
 		cmd.execute();
 	}

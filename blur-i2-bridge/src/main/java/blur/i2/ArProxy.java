@@ -18,6 +18,8 @@ import blur.simulator.Utils;
 public class ArProxy {
 	public static final String GENERATE_ID = null;
 
+	private boolean f_debug = false;
+	
 	Random f_random = new Random();
 	Map<String, Long> f_purgeList = new HashMap<String, Long>();
 
@@ -49,6 +51,7 @@ public class ArProxy {
 	String f_involvedInTemplate;
 	String f_communicationTemplate;
 
+	
 	public ArProxy() {
 		String currentDir = this.getClass().getPackage().getName().replace('.', '/');
 		String locationTemplate = new StringBuffer().append('/').append(currentDir).append("/scheme/%s").toString();
@@ -70,6 +73,10 @@ public class ArProxy {
 		f_communicationTemplate = Utils.fileReader(String.format(locationTemplate, "communication.template.xml"));
 	}
 
+	public void setDebug(boolean debug) {
+		f_debug = debug;
+	}
+	
 	public void execute() {
 		String command = f_queryTemplate.replaceAll("#person_list", String.join("\n", f_personList))
 				.replaceAll("#event_list", String.join("\n", f_eventList))
@@ -82,9 +89,10 @@ public class ArProxy {
 				.replaceAll("#involvedin_list", String.join("\n", f_involvedInList))
 				.replaceAll("#communication_list", String.join("\n", f_communicationList));
 
-		// Debug
-		//System.out.println(command);
-
+		if(f_debug == true) { 
+			System.out.println(command);
+		}
+		
 		String currentDir = this.getClass().getPackage().getName().replace('.', '/');
 		System.setProperty("ApolloServerSettingsResource", String.format("%s/%s", currentDir, "ArProxy.properties"));
 		IDataLoader dl = new AnalysisRepositoryLoader();
@@ -158,7 +166,7 @@ public class ArProxy {
 		
 		String instance = f_linkTemplate.replaceAll("#link_type", "AccessTo")
 				.replaceAll("#link_content", f_accessToTemplate).replaceAll("#id", id).replaceAll("#type", type)
-				.replaceAll("#from", fromId).replaceAll("#to", toId).replaceAll("#info", info);
+				.replaceAll("#from", fromId).replaceAll("#to", toId).replaceAll("#start_date", startDate).replaceAll("#info", info);
 
 		f_accessToList.add(instance);
 	}

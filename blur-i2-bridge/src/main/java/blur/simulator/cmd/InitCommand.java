@@ -9,7 +9,7 @@ import org.apache.commons.csv.CSVRecord;
 import blur.i2.ArProxy;
 import blur.simulator.Utils;
 
-public class InitCommand {
+public class InitCommand extends BaseCommand {
     public void execute() { 
 		db_people();
 		db_structure();

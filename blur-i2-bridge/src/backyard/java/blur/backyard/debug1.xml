@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueryResult
+	xmlns:tns="http://www.i2group.com/Schemas/2013-10-03/ModelData/Provenance">
+	<Persons></Persons>
+	<Events></Events>
+	<Addresss></Addresss>
+	<Vehicles></Vehicles>
+	<Organizations></Organizations>
+	<AccessTos>
+		<AccessTo>
+			<ItemId>eb1</ItemId>
+			<ItemVersion>0</ItemVersion>
+			<SecurityTagIds>
+				<SecurityTagId>UC</SecurityTagId>
+				<SecurityTagId>OSI</SecurityTagId>
+			</SecurityTagIds>
+			<LinkFromEndId>ppl-Txe-82</LinkFromEndId>
+			<LinkToEndId>bld-To-10</LinkToEndId>
+			<LinkDirection>NONE</LinkDirection>
+			<LinkStrength>Confirmed</LinkStrength>
+			<Cards>
+				<Card>
+					<tns:CardProvenance>
+						<RetrievalBlocks />
+						<OriginId Type="IAP.SDK.Example" Version="1">
+							<Key>
+								<String>eb1</String>
+							</Key>
+						</OriginId>
+					</tns:CardProvenance>
+					<AccessTo_AdditionalInformation>source: event id eb1</AccessTo_AdditionalInformation>
+					<AccessTo_EndDateandTime>
+						<DateTime>#end_date</DateTime>
+					</AccessTo_EndDateandTime>
+					<AccessTo_StartDateandTime>
+						<DateTime>#start_date</DateTime>
+					</AccessTo_StartDateandTime>
+					<AccessTo_TypeofUse>enter building</AccessTo_TypeofUse>
+					<AccessTo_UniqueReference>eb1</AccessTo_UniqueReference>
+				</Card>
+			</Cards>
+		</AccessTo>
+	</AccessTos>
+	<Associates></Associates>
+	<MemberOfs></MemberOfs>
+	<InvolvedIns></InvolvedIns>
+	<Communications></Communications>
+</QueryResult>

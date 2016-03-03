@@ -5,7 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import blur.i2.ArProxy;
 import blur.simulator.Utils;
 
-public class ScenarioCommand {
+public class ScenarioCommand extends BaseCommand {
 	private String f_scenario;
 	private long f_accelerationRatio;
 
@@ -42,6 +42,7 @@ public class ScenarioCommand {
 //			}
 
 			ArProxy arp = new ArProxy();
+			arp.setDebug(getDebug());
 
 			String eventTimestamp = Utils.formatTimestamp(now);
 			String eventType = r.get(1);
@@ -57,7 +58,7 @@ public class ScenarioCommand {
 				// arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId,
 				// buildingId, eventTimestamp);
 				arp.createAccessTo(eventId, eventType, personId, buildingId, eventTimestamp,
-						String.format("source: event {0}", eventId));
+						String.format("source: event id %s", eventId));
 
 			} else if (eventType.equals("call")) {
 				String callerId = r.get(3);
