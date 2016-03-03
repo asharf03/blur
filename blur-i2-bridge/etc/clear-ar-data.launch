@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
-<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_STDIN_FILE" value="${build_project}/etc/clear-ar-data.stdin"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="c:\windows\system32\cmd.exe"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="/c&#13;&#10;setup&#13;&#10;-t clearData"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="/c setup -t clearData &lt; ${resource_loc:/blur-i2-bridge/etc/clear-ar-data.stdin}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="C:\IBM\i2analyze\SDK\sdk-projects\master\build\toolkit\scripts"/>
 </launchConfiguration>

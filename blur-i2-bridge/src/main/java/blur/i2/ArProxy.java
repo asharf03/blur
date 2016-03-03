@@ -152,6 +152,10 @@ public class ArProxy {
 	}
 
 	public void createAccessTo(String id, String type, String fromId, String toId, String startDate, String info) {
+		if (id == GENERATE_ID) {
+			id = String.valueOf(Math.abs(f_random.nextLong()));
+		}
+		
 		String instance = f_linkTemplate.replaceAll("#link_type", "AccessTo")
 				.replaceAll("#link_content", f_accessToTemplate).replaceAll("#id", id).replaceAll("#type", type)
 				.replaceAll("#from", fromId).replaceAll("#to", toId).replaceAll("#info", info);
@@ -160,6 +164,10 @@ public class ArProxy {
 	}
 
 	public void createMemberOf(String id, String role, String fromId, String toId) {
+		if (id == GENERATE_ID) {
+			id = String.valueOf(Math.abs(f_random.nextLong()));
+		}
+		
 		String instance = f_linkTemplate.replaceAll("#link_type", "MemberOf")
 				.replaceAll("#link_content", f_memberOfTemplate).replaceAll("#id", id).replaceAll("#role", role)
 				.replaceAll("#from", fromId).replaceAll("#to", toId);

@@ -34,7 +34,6 @@ public class InitCommand {
 
 	private void ob_org() {
 		ArProxy arp = new ArProxy();
-		Random random = new Random();
 
 		Iterable<CSVRecord> records = Utils.csvReader("/blur/resource/data/ob_org.data");
 		for (CSVRecord record : records) {
@@ -52,8 +51,7 @@ public class InitCommand {
 			String orgId = record.get(3);
 
 			arp.createPerson(id, name, "", "");
-			String linkId = String.valueOf(random.nextLong());
-			arp.createMemberOf(linkId, role, id, orgId);
+			arp.createMemberOf(ArProxy.GENERATE_ID, role, id, orgId);
 		}
 
 		arp.execute();
@@ -72,8 +70,7 @@ public class InitCommand {
 			String owner = record.get(4);
 
 			arp.createAddress(id, type, lat, lon);
-			String linkId = String.valueOf(random.nextLong());
-			// arp.createAccessTo(linkId, "Owns", owner, id);
+			arp.createAccessTo(ArProxy.GENERATE_ID, "Owns", owner, id, "1-1-2016T11:00:00+02:00", "");
 		}
 
 		arp.execute();
