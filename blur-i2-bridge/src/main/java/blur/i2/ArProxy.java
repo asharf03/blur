@@ -13,9 +13,9 @@ import com.i2group.apollo.externaldata.connector.IExternalDataItemEditor;
 import com.i2group.apollo.externaldata.loader.AnalysisRepositoryLoader;
 import com.i2group.apollo.externaldata.loader.IDataLoader;
 
-import blur.utils.Utils;
+import blur.simulator.Utils;
 
-public class ArCommand {
+public class ArProxy {
 	public static final String GENERATE_ID = null;
 
 	Random f_random = new Random();
@@ -49,7 +49,7 @@ public class ArCommand {
 	String f_involvedInTemplate;
 	String f_communicationTemplate;
 	
-	public ArCommand() {
+	public ArProxy() {
 		f_queryTemplate  = Utils.fileReader("scheme/query.template.xml");
 		f_entityTemplate = Utils.fileReader("scheme/entity.template.xml");
 		f_linkTemplate = Utils.fileReader("scheme/link.template.xml");
@@ -84,9 +84,9 @@ public class ArCommand {
 		System.out.println( command );
 		//System.exit(1);
 		
-		System.setProperty("ApolloServerSettingsResource", "blur/i2/loader.properties");
+		System.setProperty("ApolloServerSettingsResource", "blur/i2/ArProxy.properties");
 		IDataLoader dl = new AnalysisRepositoryLoader();
-		IExternalDataItemEditor itemEditor = new ExampleItemEditor();
+		IExternalDataItemEditor itemEditor = new ArItemEditor();
 
 		dl.createItems(new StreamSource(new StringReader(command)), itemEditor);
 		dl.purgeItems(f_purgeList);

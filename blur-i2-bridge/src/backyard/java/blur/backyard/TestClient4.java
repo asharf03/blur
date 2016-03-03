@@ -11,7 +11,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import blur.i2.ArCommand;
+import blur.i2.ArProxy;
 
 public class TestClient4 {
 
@@ -43,7 +43,7 @@ public class TestClient4 {
 		System.out.println( orgId );
 		System.out.println( buildingId );
 		
-		ArCommand arc = new ArCommand();
+		ArProxy arc = new ArProxy();
 		Random random = new Random();
 		String eventId = String.valueOf(random.nextLong());
 		arc.createEvent(eventId, "ODM", timestamp, message, "");

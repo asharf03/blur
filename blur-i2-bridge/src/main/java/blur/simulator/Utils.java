@@ -1,4 +1,4 @@
-package blur.utils;
+package blur.simulator;
 
 import java.io.IOException;
 import java.io.InputStream;

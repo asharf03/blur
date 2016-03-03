@@ -8,7 +8,7 @@ import com.i2group.apollo.externaldata.connector.IExternalDataItemEditor;
 import com.i2group.apollo.externaldata.loader.AnalysisRepositoryLoader;
 import com.i2group.apollo.externaldata.loader.IDataLoader;
 
-import blur.i2.ExampleItemEditor;
+import blur.i2.ArItemEditor;
 
 public class TestClient2 {
 
@@ -21,7 +21,7 @@ public class TestClient2 {
 	public void run() {
 		System.setProperty("ApolloServerSettingsResource", "blur/bridge/test/loader.properties");
 		IDataLoader dl = new AnalysisRepositoryLoader();
-		IExternalDataItemEditor itemEditor = new ExampleItemEditor();
+		IExternalDataItemEditor itemEditor = new ArItemEditor();
 
 		InputStream is = this.getClass().getResourceAsStream("create-event.xml");
 		dl.createItems(new StreamSource(is), itemEditor);

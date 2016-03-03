@@ -1,43 +1,39 @@
-package blur.simulator;
+package blur.simulator.cmd;
 
-import java.io.IOException;
-import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 import org.apache.commons.csv.CSVRecord;
 
-import blur.i2.ArCommand;
-import blur.utils.Utils;
+import blur.i2.ArProxy;
+import blur.simulator.Utils;
 
-public class LoadDataToAr {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		LoadDataToAr ltar = new LoadDataToAr();
-		ltar.db_people();
-		ltar.db_structure();
-		ltar.db_vehicles();
-		ltar.ob_org();
-		ltar.simulator_data();
+public class InitCommand {
+    public void execute() { 
+		db_people();
+		db_structure();
+		db_vehicles();
+		ob_org();
+		simulator_data();
 	}
 
 	private void db_people() {
-		ArCommand arc = new ArCommand();
+		ArProxy arp = new ArProxy();
 
 		Iterable<CSVRecord> records = Utils.csvReader("data/db_people.data");
 		for (CSVRecord record : records) {
 			String id = record.get(0);
 			String firstName = record.get(1);
 
-			arc.createPerson(id, firstName, "", "");
+			arp.createPerson(id, firstName, "", "");
 		}
 
-		arc.execute();
+		arp.execute();
 	}
 
 	private void ob_org() {
-		ArCommand arc = new ArCommand();
+		ArProxy arp = new ArProxy();
 		Random random = new Random();
 
 		Iterable<CSVRecord> records = Utils.csvReader("data/ob_org.data");
@@ -45,7 +41,7 @@ public class LoadDataToAr {
 			String id = record.get(0);
 			String type = record.get(1);
 
-			arc.createOrganization(id, id, type);
+			arp.createOrganization(id, id, type);
 		}
 
 		records = Utils.csvReader("data/ob_org_role.data");
@@ -55,16 +51,16 @@ public class LoadDataToAr {
 			String role = record.get(2);
 			String orgId = record.get(3);
 
-			arc.createPerson(id, name, "", "");
+			arp.createPerson(id, name, "", "");
 			String linkId = String.valueOf(random.nextLong());
-			arc.createMemberOf(linkId, role, id, orgId);
+			arp.createMemberOf(linkId, role, id, orgId);
 		}
 
-		arc.execute();
+		arp.execute();
 	}
 
 	private void db_structure() {
-		ArCommand arc = new ArCommand();
+		ArProxy arp = new ArProxy();
 		Random random = new Random();
 
 		Iterable<CSVRecord> records = Utils.csvReader("data/db_structure.data");
@@ -75,12 +71,12 @@ public class LoadDataToAr {
 			String type = record.get(3);
 			String owner = record.get(4);
 
-			arc.createAddress(id, type, lat, lon);
+			arp.createAddress(id, type, lat, lon);
 			String linkId = String.valueOf(random.nextLong());
-			// arc.createAccessTo(linkId, "Owns", owner, id);
+			// arp.createAccessTo(linkId, "Owns", owner, id);
 		}
 
-		arc.execute();
+		arp.execute();
 	}
 
 	private void db_vehicles() {
@@ -97,7 +93,7 @@ public class LoadDataToAr {
 			vehicletypeList.put(make + model + year, type);
 		}
 
-		ArCommand arc = new ArCommand();
+		ArProxy arp = new ArProxy();
 		Random random = new Random();
 
 		records = Utils.csvReader("data/db_vehicles.data");
@@ -110,21 +106,21 @@ public class LoadDataToAr {
 
 			String type = vehicletypeList.get(make + model + year);
 
-			arc.createVehicle(id, make, model, year, type);
+			arp.createVehicle(id, make, model, year, type);
 
 			String linkId = String.valueOf(random.nextLong());
-			// arc.createAccessTo(linkId, "Owns", owner, id);
+			// arp.createAccessTo(linkId, "Owns", owner, id);
 		}
 
-		arc.execute();
+		arp.execute();
 	}
 
 	private void simulator_data() {
-		ArCommand arc = new ArCommand();
+		ArProxy arp = new ArProxy();
 
-		arc.createPerson("Tony Soprano", "Tony", "Soprano", "1965");
-		arc.createPerson("Richie Aprile", "Richie", "Aprile", "1955");
+		arp.createPerson("Tony Soprano", "Tony", "Soprano", "1965");
+		arp.createPerson("Richie Aprile", "Richie", "Aprile", "1955");
 
-		arc.execute();
+		arp.execute();
 	}
 }

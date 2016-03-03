@@ -9,7 +9,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
 
-import blur.i2.ArCommand;
+import blur.i2.ArProxy;
 
 public class DeleteDataFromAr {
 
@@ -20,7 +20,7 @@ public class DeleteDataFromAr {
 	}
 
 	private void db_people() {
-		ArCommand arc = new ArCommand();
+		ArProxy arc = new ArProxy();
 		
 		try {
 			Reader r = fileToReader("data/db_people.data");

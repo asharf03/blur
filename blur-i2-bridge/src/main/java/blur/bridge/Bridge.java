@@ -17,7 +17,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import blur.i2.ArCommand;
+import blur.i2.ArProxy;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -61,7 +61,7 @@ public class Bridge {
 			// System.out.println(orgId);
 			// System.out.println(buildingId);
 
-			ArCommand arc = new ArCommand();
+			ArProxy arc = new ArProxy();
 
 			Random random = new Random();
 			String eventId = String.valueOf(Math.abs(random.nextLong()));

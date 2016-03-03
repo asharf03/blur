@@ -31,16 +31,16 @@ import com.i2group.apollo.model.schema.transport.PropertyValue;
  * An external data item editor that adds time stamp information to the items
  * that it processes.
  */
-public final class ExampleItemEditor implements IExternalDataItemEditor
+public final class ArItemEditor implements IExternalDataItemEditor
 {
     private static final String UTC = "UTC";
     private final IGregorianCalendarProvider mGregorianCalendarProvider;
     private final PropertyValue mNowTimestamp;
 
     /**
-     * Constructs a new {@link ExampleItemEditor}.
+     * Constructs a new {@link ArItemEditor}.
      */
-    public ExampleItemEditor()
+    public ArItemEditor()
     {
         mGregorianCalendarProvider = new GregorianCalendarProvider();
         mNowTimestamp = createTimestamp(Calendar.getInstance());
