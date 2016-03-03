@@ -54,9 +54,11 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<executable><!--path-to-your-java8-home-directoru -->
-					</executable>
-					<compilerVersion>1.8</compilerVersion>
+					<compilerVersion>1.7</compilerVersion>
+					<compilerArguments>
+						<source>1.7</source>
+						<target>1.7</target>
+					</compilerArguments>
 				</configuration>
 			</plugin>
 			<plugin>

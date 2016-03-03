@@ -33,15 +33,15 @@ public class ScenarioCommand {
 				now = now + (Integer.valueOf(timestampOrDelta) * 1000);
 			}
 
-			try {
-				sleep = now - before / 1000 / f_accelerationRatio;
-				Thread.sleep(sleep);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException();
-			}
+//			try {
+//				sleep = now - before / 1000 / f_accelerationRatio;
+//				Thread.sleep(sleep);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				throw new RuntimeException();
+//			}
 
-			ArProxy arc = new ArProxy();
+			ArProxy arp = new ArProxy();
 
 			String eventTimestamp = Utils.formatTimestamp(now);
 			String eventType = r.get(1);
@@ -56,7 +56,7 @@ public class ScenarioCommand {
 				// personId, eventTimestamp);
 				// arc.createInvolvedIn(arc.GENERATE_ID, "Involved", eventId,
 				// buildingId, eventTimestamp);
-				arc.createAccessTo(eventId, eventType, personId, buildingId, eventTimestamp,
+				arp.createAccessTo(eventId, eventType, personId, buildingId, eventTimestamp,
 						String.format("source: event {0}", eventId));
 
 			} else if (eventType.equals("call")) {
@@ -64,11 +64,12 @@ public class ScenarioCommand {
 				String calleeId = r.get(4);
 				String callDuration = r.get(5);
 
-				arc.createCommunication(eventId, "Phone Call", callerId, calleeId, eventTimestamp, callDuration);
+				arp.createCommunication(eventId, "Phone Call", callerId, calleeId, eventTimestamp, callDuration);
 			}
+
+			arp.execute();
 		}
 
-		arc.execute();
 	}
 
 }

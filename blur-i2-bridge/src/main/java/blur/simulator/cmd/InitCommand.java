@@ -21,7 +21,7 @@ public class InitCommand {
 	private void db_people() {
 		ArProxy arp = new ArProxy();
 
-		Iterable<CSVRecord> records = Utils.csvReader("data/db_people.data");
+		Iterable<CSVRecord> records = Utils.csvReader("/blur/resource/data/db_people.data");
 		for (CSVRecord record : records) {
 			String id = record.get(0);
 			String firstName = record.get(1);
@@ -36,7 +36,7 @@ public class InitCommand {
 		ArProxy arp = new ArProxy();
 		Random random = new Random();
 
-		Iterable<CSVRecord> records = Utils.csvReader("data/ob_org.data");
+		Iterable<CSVRecord> records = Utils.csvReader("/blur/resource/data/ob_org.data");
 		for (CSVRecord record : records) {
 			String id = record.get(0);
 			String type = record.get(1);
@@ -44,7 +44,7 @@ public class InitCommand {
 			arp.createOrganization(id, id, type);
 		}
 
-		records = Utils.csvReader("data/ob_org_role.data");
+		records = Utils.csvReader("/blur/resource/data/ob_org_role.data");
 		for (CSVRecord record : records) {
 			String id = record.get(0);
 			String name = record.get(1);
@@ -63,7 +63,7 @@ public class InitCommand {
 		ArProxy arp = new ArProxy();
 		Random random = new Random();
 
-		Iterable<CSVRecord> records = Utils.csvReader("data/db_structure.data");
+		Iterable<CSVRecord> records = Utils.csvReader("/blur/resource/data/db_structure.data");
 		for (CSVRecord record : records) {
 			String id = record.get(0);
 			String lat = record.get(1);
@@ -81,7 +81,7 @@ public class InitCommand {
 
 	private void db_vehicles() {
 		Map<String, String> vehicletypeList = new HashMap<String, String>();
-		Iterable<CSVRecord> records = Utils.csvReader("data/db_vehicletype.data");
+		Iterable<CSVRecord> records = Utils.csvReader("/blur/resource/data/db_vehicletype.data");
 		for (CSVRecord record : records) {
 			String make = record.get(0);
 			String model = record.get(1);
@@ -96,7 +96,7 @@ public class InitCommand {
 		ArProxy arp = new ArProxy();
 		Random random = new Random();
 
-		records = Utils.csvReader("data/db_vehicles.data");
+		records = Utils.csvReader("/blur/resource/data/db_vehicles.data");
 		for (CSVRecord record : records) {
 			String id = record.get(0);
 			String make = record.get(1);

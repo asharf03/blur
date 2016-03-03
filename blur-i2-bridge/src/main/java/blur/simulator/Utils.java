@@ -13,11 +13,9 @@ import org.apache.commons.io.IOUtils;
 
 public class Utils {
 	
-	public static String fileReader(String filename) {
+	public static String fileReader(String fqfn) {
 		try {
-			StringBuffer sb = new StringBuffer("/blur/resource/").append(filename);
-
-			InputStream is = Utils.class.getResourceAsStream(sb.toString());
+			InputStream is = Utils.class.getResourceAsStream(fqfn);
 			return IOUtils.toString(is, "UTF-8");
 		
 		} catch (Exception e) {
