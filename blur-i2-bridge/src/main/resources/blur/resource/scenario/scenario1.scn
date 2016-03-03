@@ -4,13 +4,21 @@
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   2016-01-01T12:00:00+02:00,  enter building,  eb1,      ppl-Txe-82,       bld-To-10  
   +1,                         call,            c1,       ppl-Txe-82,       ppl-To-2,           280   
-  +600,                       exit  building,  xb1,      ppl-Txe-82,       bld-To-10 
+  +180000,                    exit  building,  xb1,      ppl-Txe-82,       bld-To-10 
   +900,                       enter building,  eb2,      ppl-Txe-82,       Bada Bing! 
-  +60,                        call,            c2,       Tony Soprano,     ppl-Txe-82,         45 
+  +60,                        call,            c2,       Tony Soprano,     ppl-Txe-82,         45
   +180,                       call,            c3,       ppl-To-2,         ppl-Txe-82,         2
-  +30,                        call,            c4,       ppl-Txe-82,       ppl-To-2,           2
+  +30,                        call,            c4,       ppl-Txe-82,       ppl-To-4,           2
+  +5,                         call,            c9,       ppl-To-2,         ppl-to-17           5
+  +1,                         call,            c10,
   +10,                        call,            c5,       ppl-To-3,         Richie Aprile,      2
-  +5,                         call,            c6,       ppl-Txe-82,       ppl-To-4,           2
+  +1,                         enter building,  eb5,      ppl-To-2,         bld-To-10
+  +10,                        enter building,  eb4,      Adriana La Cerva, Soprano Residence
+  +1,                         call,            c8,       Adriana La Cerva, Richie Aprile,      2
+  +1789                       make criminal,   mc2,      Adriana La Cerva, Received a call from a known criminal (Richie Aprile) whlie located at a known criminal location (Sopranos Residence) for more than 30 minutes [This should serve as an example to false positive alerting]
+  +5,                         call,            c6,       ppl-Txe-82,       ppl-To-2,           2
   +1,                         enter building,  eb3,      Richie Aprile,    bld-To-10
   +5,                         call,            c7,       Richie Aprile,    Tony Soprano,       2       
   +1600,                      make criminal,   mc1,      ppl-Txe-82,       Received a call from a known criminal (Tony Soprano) while located at a known criminal location (Bada Bing!) for more than 30 minutes
+  +1,                         make criminal    mc3,      bld-To-10,        The building is associated with criminal activity because a known criminal (ppl-Txe-82) stayed there for more than 30 minutes
+  +1,                         make criminal,   mc4,      ppl-to-2          Recieved a call from a known criminal (ppl-Txe-82) while located at a known criminal location (bld-To-10)
