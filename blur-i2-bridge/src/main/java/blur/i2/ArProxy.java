@@ -51,26 +51,22 @@ public class ArProxy {
 
 	public ArProxy() {
 		String currentDir = this.getClass().getPackage().getName().replace('.', '/');
-		String locationTemplate = new StringBuffer()
-				.append('/')
-				.append(currentDir)
-				.append("/scheme/%s")
-				.toString();
+		String locationTemplate = new StringBuffer().append('/').append(currentDir).append("/scheme/%s").toString();
 
-		f_queryTemplate  = Utils.fileReader(String.format(locationTemplate, "query.template.xml"));
+		f_queryTemplate = Utils.fileReader(String.format(locationTemplate, "query.template.xml"));
 		f_entityTemplate = Utils.fileReader(String.format(locationTemplate, "entity.template.xml"));
-		f_linkTemplate   = Utils.fileReader(String.format(locationTemplate, "link.template.xml"));
+		f_linkTemplate = Utils.fileReader(String.format(locationTemplate, "link.template.xml"));
 
-		f_eventTemplate   = Utils.fileReader(String.format(locationTemplate, "event.template.xml"));
-		f_personTemplate  = Utils.fileReader(String.format(locationTemplate, "person.template.xml"));
+		f_eventTemplate = Utils.fileReader(String.format(locationTemplate, "event.template.xml"));
+		f_personTemplate = Utils.fileReader(String.format(locationTemplate, "person.template.xml"));
 		f_addressTemplate = Utils.fileReader(String.format(locationTemplate, "address.template.xml"));
 		f_vehicleTemplate = Utils.fileReader(String.format(locationTemplate, "vehicle.template.xml"));
-		f_orgTemplate     = Utils.fileReader(String.format(locationTemplate, "org.template.xml"));
+		f_orgTemplate = Utils.fileReader(String.format(locationTemplate, "org.template.xml"));
 
-		f_associateTemplate     = Utils.fileReader(String.format(locationTemplate, "associate.template.xml"));
-		f_accessToTemplate      = Utils.fileReader(String.format(locationTemplate, "accessto.template.xml"));
-		f_memberOfTemplate      = Utils.fileReader(String.format(locationTemplate, "memberof.template.xml"));
-		f_involvedInTemplate    = Utils.fileReader(String.format(locationTemplate, "involvedin.template.xml"));
+		f_associateTemplate = Utils.fileReader(String.format(locationTemplate, "associate.template.xml"));
+		f_accessToTemplate = Utils.fileReader(String.format(locationTemplate, "accessto.template.xml"));
+		f_memberOfTemplate = Utils.fileReader(String.format(locationTemplate, "memberof.template.xml"));
+		f_involvedInTemplate = Utils.fileReader(String.format(locationTemplate, "involvedin.template.xml"));
 		f_communicationTemplate = Utils.fileReader(String.format(locationTemplate, "communication.template.xml"));
 	}
 
@@ -87,10 +83,10 @@ public class ArProxy {
 				.replaceAll("#communication_list", String.join("\n", f_communicationList));
 
 		// Debug
-		System.out.println(command);
-		// System.exit(1);
+		//System.out.println(command);
 
-		System.setProperty("ApolloServerSettingsResource", "blur/i2/ArProxy.properties");
+		String currentDir = this.getClass().getPackage().getName().replace('.', '/');
+		System.setProperty("ApolloServerSettingsResource", String.format("%s/%s", currentDir, "ArProxy.properties"));
 		IDataLoader dl = new AnalysisRepositoryLoader();
 		IExternalDataItemEditor itemEditor = new ArItemEditor();
 
